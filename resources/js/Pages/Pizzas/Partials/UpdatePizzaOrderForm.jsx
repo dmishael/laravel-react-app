@@ -19,7 +19,9 @@ export default function UpdatePizzaOrderForm({ pizza, className = '' }) {
     const submit = (e) => {
         e.preventDefault();
 
-        patch(route('pizzas.update', pizza.id));
+        patch(route('pizzas.update', pizza.id), {
+            preserveScroll: true,
+        });
     };
 
     const statusOptions = [

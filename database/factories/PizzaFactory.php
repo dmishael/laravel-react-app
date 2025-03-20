@@ -43,7 +43,7 @@ class PizzaFactory extends Factory
             'size' => ['Small', 'Medium', 'Large', 'Extra-Large'][rand(0, 3)],
             'crust' => ['Regular', 'Thin', 'Garlic'][rand(0, 2)],
             'status' => ['Ordered', 'Prepping', 'Baking', 'Checking', 'Ready'][rand(0, 4)],
-            'toppings' => [],
+            'toppings' => $toppings,
         ];
     }
 }
