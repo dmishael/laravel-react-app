@@ -2,7 +2,7 @@ import Table from '@/Components/Table.jsx';
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import { Head } from '@inertiajs/react';
 
-const columns = ['size', 'status'];
+const columns = ['size', 'chef', 'status'];
 
 export default function All({ auth, pizzas }) {
     return (
