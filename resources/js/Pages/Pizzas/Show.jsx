@@ -1,7 +1,18 @@
-import { Head } from '@inertiajs/react';
+import { Head, router } from '@inertiajs/react';
+import { useEffect } from 'react';
 import PizzaStatus from './Partials/PizzaStatus';
 
 export default function Show({ pizza }) {
+    useEffect(() => {
+        const interval = setInterval(() => {
+            router.reload({ only: ['pizza'] });
+        }, 1000);
+
+        return () => {
+            clearInterval(interval);
+        };
+    }, []);
+
     return (
         <div className="mx-auto max-w-3xl py-12">
             <div className="py-8">

@@ -5,9 +5,24 @@ export default function PizzaStatus({ currentStatus }) {
         let baseClasses =
             'w-1/5 bg-gradient-to-b flex items-center justify-center h-20 border-r-2 transition-all';
 
+        if (index === 0) {
+            baseClasses += ' rounded-l-full';
+        }
+
         if (status === currentStatus) {
+            baseClasses = baseClasses.replace('border-r-2', '');
             return `${baseClasses} from-red-500 to-red-600 scale-110 rounded shadow-lg`;
         }
+
+        if (index === statuses.length - 1) {
+            baseClasses = baseClasses.replace('border-r-2', 'rounded-r-full');
+        }
+
+        if (statuses.indexOf(currentStatus) > index) {
+            return `${baseClasses} from-blue-500 to-blue-600 border-blue-700`;
+        }
+
+        return `${baseClasses} from-blue-300 to-blue-400 border-blue-500`;
     };
 
     return (
