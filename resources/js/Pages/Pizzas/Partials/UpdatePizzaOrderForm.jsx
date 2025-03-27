@@ -5,6 +5,7 @@ import SelectInput from '@/Components/SelectInput.jsx';
 import TextInput from '@/Components/TextInput';
 import { Transition } from '@headlessui/react';
 import { useForm } from '@inertiajs/react';
+import DeletePizza from './DeletePizza';
 
 export default function UpdatePizzaOrderForm({ pizza, className = '' }) {
     console.log(pizza);
@@ -23,6 +24,16 @@ export default function UpdatePizzaOrderForm({ pizza, className = '' }) {
             preserveScroll: true,
         });
     };
+
+    // const destroy = (e) => {
+    //     e.preventDefault();
+    //     console.log('helo');
+
+    //     delete (route('pizzas.destroy', pizza.id),
+    //     {
+    //         preserveScroll: true,
+    //     });
+    // };
 
     const statusOptions = [
         'Ordered',
@@ -108,6 +119,7 @@ export default function UpdatePizzaOrderForm({ pizza, className = '' }) {
                     </Transition>
                 </div>
             </form>
+            <DeletePizza pizza={pizza} />
         </section>
     );
 }

@@ -23,7 +23,7 @@ export default function All({ auth, pizzas }) {
                                 items={pizzas}
                                 columns={columns}
                                 primary="Order Number"
-                                action="pizzas.edit"
+                                action="pizzas.destroy"
                             />
                         </div>
                     </div>

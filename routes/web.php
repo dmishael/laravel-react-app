@@ -23,6 +23,7 @@ Route::get('/dashboard', function () {
 Route::get('/order/{pizza}', [PublicPizzaController::class, 'show'])->name(name: 'public.pizzas.show');
 
 Route::middleware('auth')->group(function () {
+    Route::delete('/pizzas/{pizza}', [PizzaController::class, 'destroy'])->name('pizzas.destroy');
     Route::get('/pizzas', [PizzaController::class, 'index'])->name('pizzas.index');
     Route::get('/pizzas/{pizza}', [PizzaController::class, 'edit'])->name('pizzas.edit');
     Route::patch('/pizzas/{pizza}', [PizzaController::class, 'update'])->name('pizzas.update');
