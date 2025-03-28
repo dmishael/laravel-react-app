@@ -34,7 +34,13 @@ export default function AuthenticatedLayout({ header, children }) {
                                     href={route('pizzas.index')}
                                     active={route().current('pizzas.*')}
                                 >
-                                    Pizzas
+                                    Zas
+                                </NavLink>
+                                <NavLink
+                                    href={'create'}
+                                    active={route().current('create')}
+                                >
+                                    Create a Za
                                 </NavLink>
                             </div>
                         </div>

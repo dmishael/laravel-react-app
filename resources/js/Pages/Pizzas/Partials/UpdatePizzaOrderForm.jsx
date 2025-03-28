@@ -13,7 +13,7 @@ export default function UpdatePizzaOrderForm({ pizza, className = '' }) {
         useForm({
             size: pizza.size,
             crust: pizza.crust,
-            toppings: pizza.toppings.join(', '),
+            toppings: Object.values(pizza.toppings).join(', '),
             status: pizza.status,
         });
 

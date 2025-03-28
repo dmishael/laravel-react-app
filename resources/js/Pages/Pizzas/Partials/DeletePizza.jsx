@@ -16,24 +16,9 @@ export default function DeletePizza({ pizza }) {
             };
     };
 
-    // const destroy = (e) => {
-    //     e.preventDefault();
-    //     console.log('helo');
-
-    //     delete (route('pizzas.destroy', pizza.id),
-    //     {
-    //         preserveScroll: true,
-    //     });
-    // };
-
     return (
-        // <section className={className}>
         <form method="POST" onSubmit={submit} className="mt-6 space-y-6">
             <button>Delete</button>
         </form>
-        // <form action="/example" >
-        //     <input type="hidden" name="_method" value="PUT">
-        //     <input type="hidden" name="_token" value="{{ csrf_token() }}">
-        // </form>
     );
 }

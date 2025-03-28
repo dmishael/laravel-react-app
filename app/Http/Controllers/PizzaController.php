@@ -35,25 +35,24 @@ class PizzaController extends Controller
 
     public function destroy($id)
     {
-        // Find the pizza by its IDs
-        // $pizza = Pizza::find($id);
-        // dd($pizza);
         Pizza::destroy($id);
         return Redirect::to('/pizzas');
+    }
 
-        // error_log('Some message here.');
-        // $pizzas = Pizza::all();
+    // public function create(Pizza $pizza, Request $request)
+    // {
+    //     return Redirect::to('/create');
+    // }
 
-        // return Inertia::render('Pizzas/All', [
-        //     'pizzas' => $pizzas,
+    public function create($data)
+    {
+        dd($data);
+        // $newPizza = Pizza::create([
+        //     'title' => $request->input('title'),
+        //     'content' => $request->input('content'),
         // ]);
+        // dd($newPizza);
 
-        // Check if the post exists
-        // if ($id) {
-        //     echo $pizza;
-        //     return redirect()->route('pizzas.index')->with('success', 'Post deleted successfully!');
-        // };
-
-        // return redirect()->route('pizzas.index')->with('error', 'Post not found!');
+        // return Redirect::to('/create');
     }
 }

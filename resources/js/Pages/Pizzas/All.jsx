@@ -1,6 +1,7 @@
 import Table from '@/Components/Table.jsx';
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import { Head } from '@inertiajs/react';
+import CreatePizzaOrderForm from './Partials/CreatePizzaOrderForm';
 
 const columns = ['size', 'chef', 'status'];
 
@@ -14,6 +15,7 @@ export default function All({ auth, pizzas }) {
             }
         >
             <Head title="All Pizzas" />
+            <CreatePizzaOrderForm />
 
             <div className="py-12">
                 <div className="mx-auto max-w-7xl sm:px-6 lg:px-8">
