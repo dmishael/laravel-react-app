@@ -2,37 +2,40 @@ import InputLabel from '@/Components/InputLabel';
 import PrimaryButton from '@/Components/PrimaryButton';
 import SelectInput from '@/Components/SelectInput.jsx';
 import { useForm } from '@inertiajs/react';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 // import { Transition } from '@headlessui/react';
 
 export default function CreatePizzaOrderForm() {
-    const { post } = useForm({});
-
     const [pizza, setValues] = useState({
-        id: '',
-        user_id: '',
+        id: 99998,
+        user_id: 4,
         size: '',
         crust: '',
-        status: '',
+        status: 'Ordered',
         toppings: '',
     });
+
+    const { post: create } = useForm({});
+
+    useEffect(() => {
+        console.log(pizza);
+    }, [pizza]);
 
     function handleChange(e) {
         console.log(e);
         const key = e.target.id;
         const value = e.target.value;
-        setValues((values) => ({
-            ...values,
+        setValues((pizza) => ({
+            ...pizza,
             [key]: value,
         }));
     }
 
     const submit = (e) => {
         e.preventDefault();
-        console.log(e.target[0].value);
-        console.log(e.target[1].value);
+        console.log(pizza);
 
-        post(route('pizzas.create', pizza), {
+        create(route('pizzas.create', pizza), {
             preserveScroll: true,
         });
     };
@@ -69,11 +72,11 @@ export default function CreatePizzaOrderForm() {
                     <InputLabel htmlFor="size" value="Size" />
 
                     <SelectInput
-                        id="t"
+                        id="size"
                         className="w-half mt-1"
                         options={size}
-                        onChange={(e) => handleChange('size', e.target.value)}
-                        // value={data.size}
+                        onChange={handleChange}
+                        value={pizza.size}
                         // disabled
                     />
                 </div>
@@ -81,11 +84,11 @@ export default function CreatePizzaOrderForm() {
                     <InputLabel htmlFor="crust" value="Crust" />
 
                     <SelectInput
-                        id="t"
+                        id="crust"
                         className="w-half mt-1"
                         options={crust}
-                        onChange={(e) => handleChange('crust', e.target.value)}
-                        // value={data.size}
+                        onChange={handleChange}
+                        value={pizza.crust}
                         // disabled
                     />
                 </div>
@@ -93,13 +96,11 @@ export default function CreatePizzaOrderForm() {
                     <InputLabel htmlFor="toppings" value="Toppings" />
 
                     <SelectInput
-                        id="t"
+                        id="toppings"
                         className="w-half mt-1"
                         options={toppingChoices}
-                        onChange={(e) =>
-                            handleChange('toppings', e.target.value)
-                        }
-                        // value={data.size}
+                        onChange={handleChange}
+                        value={pizza.toppings}
                         // disabled
                     />
                 </div>
@@ -107,7 +108,7 @@ export default function CreatePizzaOrderForm() {
                     <InputLabel htmlFor="status" value="Status" />
 
                     <SelectInput
-                        id="t"
+                        id="status"
                         className="w-half mt-1"
                         value={''}
                         disabled

@@ -19,15 +19,15 @@ Route::get('/', function () {
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
-
+ 
 Route::get('/create', function () {
     return Inertia::render('Create');
 })->middleware(['auth', 'verified'])->name('create');
 
-Route::get('/order/{pizza}', [PublicPizzaController::class, 'show'])->name(name: 'public.pizzas.show');
+// Route::get('/order/{pizza}', [PublicPizzaController::class, 'show'])->name(name: 'public.pizzas.show');
 
 Route::middleware('auth')->group(function () {
-    Route::post('/pizzas/{data}', [PizzaController::class, 'create'])->name('pizzas.create');
+    Route::post('/pizzas', [PizzaController::class, 'create'])->name('pizzas.create');
     Route::delete('/pizzas/{pizza}', [PizzaController::class, 'destroy'])->name('pizzas.destroy');
     Route::get('/pizzas', [PizzaController::class, 'index'])->name('pizzas.index');
     Route::get('/pizzas/{pizza}', [PizzaController::class, 'edit'])->name('pizzas.edit');
