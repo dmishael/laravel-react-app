@@ -1,3 +1,4 @@
+import PrimaryButton from '@/Components/PrimaryButton';
 import Table from '@/Components/Table.jsx';
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import { Head } from '@inertiajs/react';
@@ -20,12 +21,14 @@ export default function All({ auth, pizzas }) {
             <div className="py-12">
                 <div className="mx-auto max-w-7xl sm:px-6 lg:px-8">
                     <div className="overflow-hidden bg-white shadow-sm sm:rounded-lg">
-                        <a
-                            href={route('pizzas.query', auth.user)}
-                            className="font-medium text-blue-600 hover:underline dark:text-blue-500"
-                        >
-                            My Zas
-                        </a>
+                        <PrimaryButton className="m-6">
+                            <a
+                                href={route('pizzas.query', auth.user)}
+                                className="text-white-600 font-medium hover:underline"
+                            >
+                                My Zas
+                            </a>
+                        </PrimaryButton>
                         <div className="p-6 text-gray-900">
                             <Table
                                 items={pizzas}
