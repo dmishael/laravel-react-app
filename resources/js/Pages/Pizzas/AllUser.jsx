@@ -3,9 +3,8 @@ import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import { Head } from '@inertiajs/react';
 
 const columns = ['size', 'chef', 'status'];
-// const action = 'pizzas.edit';
 
-export default function All({ auth, pizzas }) {
+export default function AllUser({ auth, pizzas }) {
     // user={auth.user}
     return (
         <AuthenticatedLayout
@@ -20,12 +19,9 @@ export default function All({ auth, pizzas }) {
             <div className="py-12">
                 <div className="mx-auto max-w-7xl sm:px-6 lg:px-8">
                     <div className="overflow-hidden bg-white shadow-sm sm:rounded-lg">
-                        <a
-                            href={route('pizzas.query', auth.user)}
-                            className="font-medium text-blue-600 hover:underline dark:text-blue-500"
-                        >
-                            My Zas
-                        </a>
+                        <h1 className="p-6 text-center text-2xl font-bold">
+                            {auth.user.name + `'s`} Pizza Orders
+                        </h1>
                         <div className="p-6 text-gray-900">
                             <Table
                                 items={pizzas}

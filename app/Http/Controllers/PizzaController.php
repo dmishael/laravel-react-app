@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\DB;
 use App\Models\Pizza;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
@@ -67,7 +67,7 @@ class PizzaController extends Controller
 
             //#2 new version
             $pizza = Pizza::create([
-                'id' => $request->id,
+                'id' => rand(10000, 11111),
                 'size' => $request->size,
                 'user_id' => $request->user_id,
                 'crust' => $request->crust,
@@ -79,6 +79,18 @@ class PizzaController extends Controller
             // dd($newPizza);
 
             return Redirect::to('/pizzas');
+        }
+
+    public function query($user)
+        {
+            // echo($user);
+            // Pizza::get()->where;
+            $pizzas = Pizza::where('user_id', $user)->get();
+            // dd($pizzas);
+            return Inertia::render('Pizzas/AllUser', [
+                'pizzas' => $pizzas,
+            ]);
+            // return Redirect::to('/pizzas');
         }
         
     

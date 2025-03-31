@@ -1,14 +1,16 @@
 import InputLabel from '@/Components/InputLabel';
 import PrimaryButton from '@/Components/PrimaryButton';
 import SelectInput from '@/Components/SelectInput.jsx';
-import { useForm } from '@inertiajs/react';
+import { useForm, usePage } from '@inertiajs/react';
 import { useEffect, useState } from 'react';
 // import { Transition } from '@headlessui/react';
 
 export default function CreatePizzaOrderForm() {
+    const user = usePage().props.auth.user;
+    console.log(user);
+
     const [pizza, setValues] = useState({
-        id: 99998,
-        user_id: 4,
+        user_id: user.id,
         size: '',
         crust: '',
         status: 'Ordered',

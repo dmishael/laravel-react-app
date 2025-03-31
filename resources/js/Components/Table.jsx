@@ -29,7 +29,19 @@ export default function Table({ items, columns, primary, action }) {
                             </th>
                             {columns.map((column) => (
                                 <td key={column} className="px-6 py-4">
-                                    {item[column]}
+                                    {column !== 'status' ? (
+                                        item[column]
+                                    ) : (
+                                        <a
+                                            href={route(
+                                                'public.pizzas.show',
+                                                item.id,
+                                            )}
+                                            className="font-medium text-blue-600 hover:underline dark:text-blue-500"
+                                        >
+                                            {item[column]}
+                                        </a>
+                                    )}
                                 </td>
                             ))}
                             <td className="px-6 py-4">

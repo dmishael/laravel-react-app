@@ -17,6 +17,7 @@ class Pizza extends Model
         'last_updated',
     ];
 
+    // translates db to appilcation. data will be array in the backend but presented as json
     protected $casts = [
         'toppings' => 'array',
     ];
