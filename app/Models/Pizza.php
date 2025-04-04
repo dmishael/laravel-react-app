@@ -24,6 +24,8 @@ class Pizza extends Model
         'toppings' => 'array',
     ];
 
+    // this removes user data from response
+
     protected $hidden = [
         'user',
     ];
