@@ -18,6 +18,8 @@ class Pizza extends Model
     ];
 
     // translates db to appilcation. data will be array in the backend but presented as json
+
+    // this is not stored in the DB
     protected $casts = [
         'toppings' => 'array',
     ];
